@@ -1,0 +1,184 @@
+collection_name: collection_30_fields
+fields:
+  # String fields with different null probabilities
+  - name: "1"
+    type: string
+    specs:
+      length_range: [8, 20]
+      null_probability: 0.0
+  - name: "2"
+    type: string
+    specs:
+      values: ["A", "B", "C", "D", "E"]
+      null_probability: 0.3
+  - name: "3"
+    type: string
+    specs:
+      length_range: [10, 30]
+      null_probability: 0.6
+  - name: "4"
+    type: string
+    specs:
+      values: ["alpha", "beta", "gamma", "delta"]
+      null_probability: 0.9
+      
+  # Big Integer fields with different null probabilities
+  - name: "5"
+    type: big_integer
+    specs:
+      range: [1000, 9999]
+      null_probability: 0.0
+  - name: "6"
+    type: big_integer
+    specs:
+      values: [10, 20, 30, 40, 50]
+      null_probability: 0.3
+  - name: "7"
+    type: big_integer
+    specs:
+      range: [100000, 999999]
+      null_probability: 0.6
+  - name: "8"
+    type: big_integer
+    specs:
+      range: [1, 100]
+      null_probability: 0.9
+
+  # Big Decimal fields with different null probabilities
+  - name: "9"
+    type: big_decimal
+    specs:
+      range: [100.00, 999.99]
+      precision: 2
+      null_probability: 0.0
+  - name: "10"
+    type: big_decimal
+    specs:
+      values: [10.5, 20.5, 30.5, 40.5]
+      precision: 1
+      null_probability: 0.3
+  - name: "11"
+    type: big_decimal
+    specs:
+      range: [1000.00, 9999.99]
+      precision: 2
+      null_probability: 0.6
+  - name: "12"
+    type: big_decimal
+    specs:
+      range: [0.01, 9.99]
+      precision: 2
+      null_probability: 0.9
+
+  # Boolean fields with different null probabilities
+  - name: "13"
+    type: boolean
+    specs:
+      null_probability: 0.0
+  - name: "14"
+    type: boolean
+    specs:
+      null_probability: 0.3
+  - name: "15"
+    type: boolean
+    specs:
+      null_probability: 0.6
+  - name: "16"
+    type: boolean
+    specs:
+      null_probability: 0.9
+
+  # Array fields with different null probabilities
+  - name: "17"
+    type: array
+    specs:
+      min_length: 1
+      max_length: 5
+      element_type: string
+      element_specs:
+        length_range: [3, 8]
+      null_probability: 0.0
+  - name: "18"
+    type: array
+    specs:
+      min_length: 2
+      max_length: 4
+      element_type: big_integer
+      element_specs:
+        range: [1, 100]
+      null_probability: 0.3
+  - name: "19"
+    type: array
+    specs:
+      min_length: 1
+      max_length: 3
+      element_type: boolean
+      null_probability: 0.6
+  - name: "20"
+    type: array
+    specs:
+      min_length: 1
+      max_length: 6
+      element_type: string
+      element_specs:
+        values: ["red", "blue", "green"]
+      null_probability: 0.9
+
+  # Datetime fields with different null probabilities
+  - name: "21"
+    type: datetime
+    specs:
+      range: ["2023-01-01T00:00:00Z", "2023-12-31T23:59:59Z"]
+      null_probability: 0.0
+  - name: "22"
+    type: datetime
+    specs:
+      range: ["2020-01-01T00:00:00Z", "2022-12-31T23:59:59Z"]
+      null_probability: 0.3
+  - name: "23"
+    type: datetime
+    specs:
+      values: ["2023-01-01T12:00:00Z", "2023-06-01T12:00:00Z", "2023-12-31T12:00:00Z"]
+      null_probability: 0.6
+  - name: "24"
+    type: datetime
+    specs:
+      range: ["2024-01-01T00:00:00Z", "2024-12-31T23:59:59Z"]
+      null_probability: 0.9
+
+  # Mixed additional fields to reach 30
+  - name: "25"
+    type: string
+    specs:
+      length_range: [15, 25]
+      null_probability: 0.3
+  - name: "26"
+    type: big_integer
+    specs:
+      range: [1000000, 9999999]
+      null_probability: 0.6
+  - name: "27"
+    type: big_decimal
+    specs:
+      range: [100.000, 999.999]
+      precision: 3
+      null_probability: 0.0
+  - name: "28"
+    type: array
+    specs:
+      min_length: 2
+      max_length: 5
+      element_type: big_decimal
+      element_specs:
+        range: [1.0, 100.0]
+        precision: 1
+      null_probability: 0.3
+  - name: "29"
+    type: datetime
+    specs:
+      range: ["2023-01-01T00:00:00Z", "2025-12-31T23:59:59Z"]
+      null_probability: 0.6
+  - name: "30"
+    type: boolean
+    specs:
+      null_probability: 0.0

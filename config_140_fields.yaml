@@ -1,0 +1,797 @@
+collection_name: collection_140_fields
+fields:
+  # String fields (28 fields with different null probabilities)
+  - name: "1"
+    type: string
+    specs:
+      length_range: [8, 20]
+      null_probability: 0.0
+  - name: "2"
+    type: string
+    specs:
+      values: ["A", "B", "C", "D", "E"]
+      null_probability: 0.0
+  - name: "3"
+    type: string
+    specs:
+      length_range: [5, 15]
+      null_probability: 0.0
+  - name: "4"
+    type: string
+    specs:
+      values: ["alpha", "beta", "gamma"]
+      null_probability: 0.0
+  - name: "5"
+    type: string
+    specs:
+      length_range: [10, 30]
+      null_probability: 0.0
+  - name: "6"
+    type: string
+    specs:
+      values: ["success", "failure", "pending"]
+      null_probability: 0.0
+  - name: "7"
+    type: string
+    specs:
+      length_range: [3, 12]
+      null_probability: 0.0
+  - name: "8"
+    type: string
+    specs:
+      length_range: [15, 25]
+      null_probability: 0.3
+  - name: "9"
+    type: string
+    specs:
+      values: ["high", "medium", "low"]
+      null_probability: 0.3
+  - name: "10"
+    type: string
+    specs:
+      length_range: [20, 40]
+      null_probability: 0.3
+  - name: "11"
+    type: string
+    specs:
+      values: ["north", "south", "east", "west"]
+      null_probability: 0.3
+  - name: "12"
+    type: string
+    specs:
+      length_range: [10, 50]
+      null_probability: 0.3
+  - name: "13"
+    type: string
+    specs:
+      values: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
+      null_probability: 0.3
+  - name: "14"
+    type: string
+    specs:
+      length_range: [1, 10]
+      null_probability: 0.3
+  - name: "15"
+    type: string
+    specs:
+      length_range: [25, 35]
+      null_probability: 0.6
+  - name: "16"
+    type: string
+    specs:
+      values: ["critical", "warning", "info", "debug"]
+      null_probability: 0.6
+  - name: "17"
+    type: string
+    specs:
+      length_range: [5, 25]
+      null_probability: 0.6
+  - name: "18"
+    type: string
+    specs:
+      values: ["draft", "review", "approved", "rejected"]
+      null_probability: 0.6
+  - name: "19"
+    type: string
+    specs:
+      length_range: [12, 24]
+      null_probability: 0.6
+  - name: "20"
+    type: string
+    specs:
+      values: ["small", "medium", "large", "xlarge"]
+      null_probability: 0.6
+  - name: "21"
+    type: string
+    specs:
+      length_range: [8, 16]
+      null_probability: 0.6
+  - name: "22"
+    type: string
+    specs:
+      length_range: [30, 50]
+      null_probability: 0.9
+  - name: "23"
+    type: string
+    specs:
+      values: ["red", "blue", "green", "yellow", "purple"]
+      null_probability: 0.9
+  - name: "24"
+    type: string
+    specs:
+      length_range: [4, 8]
+      null_probability: 0.9
+  - name: "25"
+    type: string
+    specs:
+      values: ["bronze", "silver", "gold", "platinum"]
+      null_probability: 0.9
+  - name: "26"
+    type: string
+    specs:
+      length_range: [15, 30]
+      null_probability: 0.9
+  - name: "27"
+    type: string
+    specs:
+      values: ["beginner", "intermediate", "expert"]
+      null_probability: 0.9
+  - name: "28"
+    type: string
+    specs:
+      length_range: [20, 35]
+      null_probability: 0.9
+
+  # Big Integer fields (28 fields with different null probabilities)
+  - name: "29"
+    type: big_integer
+    specs:
+      range: [1000, 9999]
+      null_probability: 0.0
+  - name: "30"
+    type: big_integer
+    specs:
+      values: [100, 200, 300, 400]
+      null_probability: 0.0
+  - name: "31"
+    type: big_integer
+    specs:
+      range: [1, 100]
+      null_probability: 0.0
+  - name: "32"
+    type: big_integer
+    specs:
+      values: [1000, 2000, 3000, 4000]
+      null_probability: 0.0
+  - name: "33"
+    type: big_integer
+    specs:
+      range: [10000, 99999]
+      null_probability: 0.0
+  - name: "34"
+    type: big_integer
+    specs:
+      values: [5, 10, 15, 20, 25]
+      null_probability: 0.0
+  - name: "35"
+    type: big_integer
+    specs:
+      range: [100, 999]
+      null_probability: 0.0
+  - name: "36"
+    type: big_integer
+    specs:
+      range: [100000, 999999]
+      null_probability: 0.3
+  - name: "37"
+    type: big_integer
+    specs:
+      values: [1, 2, 3, 4, 5]
+      null_probability: 0.3
+  - name: "38"
+    type: big_integer
+    specs:
+      range: [500, 1500]
+      null_probability: 0.3
+  - name: "39"
+    type: big_integer
+    specs:
+      values: [10000, 20000, 30000]
+      null_probability: 0.3
+  - name: "40"
+    type: big_integer
+    specs:
+      range: [1, 1000]
+      null_probability: 0.3
+  - name: "41"
+    type: big_integer
+    specs:
+      values: [15, 25, 35, 45]
+      null_probability: 0.3
+  - name: "42"
+    type: big_integer
+    specs:
+      range: [2000, 3000]
+      null_probability: 0.3
+  - name: "43"
+    type: big_integer
+    specs:
+      range: [1000000, 9999999]
+      null_probability: 0.6
+  - name: "44"
+    type: big_integer
+    specs:
+      values: [100, 500, 1000]
+      null_probability: 0.6
+  - name: "45"
+    type: big_integer
+    specs:
+      range: [50, 150]
+      null_probability: 0.6
+  - name: "46"
+    type: big_integer
+    specs:
+      values: [2, 4, 6, 8, 10]
+      null_probability: 0.6
+  - name: "47"
+    type: big_integer
+    specs:
+      range: [300, 600]
+      null_probability: 0.6
+  - name: "48"
+    type: big_integer
+    specs:
+      values: [1111, 2222, 3333, 4444]
+      null_probability: 0.6
+  - name: "49"
+    type: big_integer
+    specs:
+      range: [10, 20]
+      null_probability: 0.6
+  - name: "50"
+    type: big_integer
+    specs:
+      range: [5000, 6000]
+      null_probability: 0.9
+  - name: "51"
+    type: big_integer
+    specs:
+      values: [7, 14, 21, 28]
+      null_probability: 0.9
+  - name: "52"
+    type: big_integer
+    specs:
+      range: [75, 125]
+      null_probability: 0.9
+  - name: "53"
+    type: big_integer
+    specs:
+      values: [50000, 60000, 70000]
+      null_probability: 0.9
+  - name: "54"
+    type: big_integer
+    specs:
+      range: [400, 800]
+      null_probability: 0.9
+  - name: "55"
+    type: big_integer
+    specs:
+      values: [99, 999, 9999]
+      null_probability: 0.9
+  - name: "56"
+    type: big_integer
+    specs:
+      range: [250, 750]
+      null_probability: 0.9
+
+  # Big Decimal fields (28 fields with different null probabilities)
+  - name: "57"
+    type: big_decimal
+    specs:
+      range: [100.00, 999.99]
+      precision: 2
+      null_probability: 0.0
+  - name: "58"
+    type: big_decimal
+    specs:
+      values: [1.5, 2.5, 3.5, 4.5]
+      precision: 1
+      null_probability: 0.0
+  - name: "59"
+    type: big_decimal
+    specs:
+      range: [0.001, 0.999]
+      precision: 3
+      null_probability: 0.0
+  - name: "60"
+    type: big_decimal
+    specs:
+      values: [10.00, 20.00, 30.00]
+      precision: 2
+      null_probability: 0.0
+  - name: "61"
+    type: big_decimal
+    specs:
+      range: [1000.00, 9999.99]
+      precision: 2
+      null_probability: 0.0
+  - name: "62"
+    type: big_decimal
+    specs:
+      values: [0.5, 1.5, 2.5]
+      precision: 1
+      null_probability: 0.0
+  - name: "63"
+    type: big_decimal
+    specs:
+      range: [50.00, 150.00]
+      precision: 2
+      null_probability: 0.0
+  - name: "64"
+    type: big_decimal
+    specs:
+      range: [1.00, 99.99]
+      precision: 2
+      null_probability: 0.3
+  - name: "65"
+    type: big_decimal
+    specs:
+      values: [100.0, 200.0, 300.0]
+      precision: 1
+      null_probability: 0.3
+  - name: "66"
+    type: big_decimal
+    specs:
+      range: [0.01, 9.99]
+      precision: 2
+      null_probability: 0.3
+  - name: "67"
+    type: big_decimal
+    specs:
+      values: [1.11, 2.22, 3.33]
+      precision: 2
+      null_probability: 0.3
+  - name: "68"
+    type: big_decimal
+    specs:
+      range: [500.00, 999.99]
+      precision: 2
+      null_probability: 0.3
+  - name: "69"
+    type: big_decimal
+    specs:
+      values: [0.001, 0.002, 0.003]
+      precision: 3
+      null_probability: 0.3
+  - name: "70"
+    type: big_decimal
+    specs:
+      range: [25.00, 75.00]
+      precision: 2
+      null_probability: 0.3
+  - name: "71"
+    type: big_decimal
+    specs:
+      range: [100.000, 999.999]
+      precision: 3
+      null_probability: 0.6
+  - name: "72"
+    type: big_decimal
+    specs:
+      values: [5.5, 6.5, 7.5]
+      precision: 1
+      null_probability: 0.6
+  - name: "73"
+    type: big_decimal
+    specs:
+      range: [10000.00, 99999.99]
+      precision: 2
+      null_probability: 0.6
+  - name: "74"
+    type: big_decimal
+    specs:
+      values: [0.25, 0.50, 0.75]
+      precision: 2
+      null_probability: 0.6
+  - name: "75"
+    type: big_decimal
+    specs:
+      range: [1.000, 9.999]
+      precision: 3
+      null_probability: 0.6
+  - name: "76"
+    type: big_decimal
+    specs:
+      values: [15.5, 25.5, 35.5]
+      precision: 1
+      null_probability: 0.6
+  - name: "77"
+    type: big_decimal
+    specs:
+      range: [250.00, 750.00]
+      precision: 2
+      null_probability: 0.6
+  - name: "78"
+    type: big_decimal
+    specs:
+      range: [0.0001, 0.9999]
+      precision: 4
+      null_probability: 0.9
+  - name: "79"
+    type: big_decimal
+    specs:
+      values: [99.99, 199.99, 299.99]
+      precision: 2
+      null_probability: 0.9
+  - name: "80"
+    type: big_decimal
+    specs:
+      range: [1234.56, 9876.54]
+      precision: 2
+      null_probability: 0.9
+  - name: "81"
+    type: big_decimal
+    specs:
+      values: [0.125, 0.250, 0.375]
+      precision: 3
+      null_probability: 0.9
+  - name: "82"
+    type: big_decimal
+    specs:
+      range: [100.0, 200.0]
+      precision: 1
+      null_probability: 0.9
+  - name: "83"
+    type: big_decimal
+    specs:
+      values: [1.234, 5.678, 9.012]
+      precision: 3
+      null_probability: 0.9
+  - name: "84"
+    type: big_decimal
+    specs:
+      range: [333.33, 666.66]
+      precision: 2
+      null_probability: 0.9
+
+  # Boolean fields (20 fields with different null probabilities)
+  - name: "85"
+    type: boolean
+    specs:
+      null_probability: 0.0
+  - name: "86"
+    type: boolean
+    specs:
+      null_probability: 0.0
+  - name: "87"
+    type: boolean
+    specs:
+      null_probability: 0.0
+  - name: "88"
+    type: boolean
+    specs:
+      null_probability: 0.0
+  - name: "89"
+    type: boolean
+    specs:
+      null_probability: 0.0
+  - name: "90"
+    type: boolean
+    specs:
+      null_probability: 0.3
+  - name: "91"
+    type: boolean
+    specs:
+      null_probability: 0.3
+  - name: "92"
+    type: boolean
+    specs:
+      null_probability: 0.3
+  - name: "93"
+    type: boolean
+    specs:
+      null_probability: 0.3
+  - name: "94"
+    type: boolean
+    specs:
+      null_probability: 0.3
+  - name: "95"
+    type: boolean
+    specs:
+      null_probability: 0.6
+  - name: "96"
+    type: boolean
+    specs:
+      null_probability: 0.6
+  - name: "97"
+    type: boolean
+    specs:
+      null_probability: 0.6
+  - name: "98"
+    type: boolean
+    specs:
+      null_probability: 0.6
+  - name: "99"
+    type: boolean
+    specs:
+      null_probability: 0.6
+  - name: "100"
+    type: boolean
+    specs:
+      null_probability: 0.9
+  - name: "101"
+    type: boolean
+    specs:
+      null_probability: 0.9
+  - name: "102"
+    type: boolean
+    specs:
+      null_probability: 0.9
+  - name: "103"
+    type: boolean
+    specs:
+      null_probability: 0.9
+  - name: "104"
+    type: boolean
+    specs:
+      null_probability: 0.9
+
+  # Array fields (20 fields with different null probabilities)
+  - name: "105"
+    type: array
+    specs:
+      min_length: 1
+      max_length: 5
+      element_type: string
+      element_specs:
+        length_range: [3, 8]
+      null_probability: 0.0
+  - name: "106"
+    type: array
+    specs:
+      min_length: 2
+      max_length: 4
+      element_type: big_integer
+      element_specs:
+        range: [1, 100]
+      null_probability: 0.0
+  - name: "107"
+    type: array
+    specs:
+      min_length: 1
+      max_length: 3
+      element_type: boolean
+      null_probability: 0.0
+  - name: "108"
+    type: array
+    specs:
+      min_length: 2
+      max_length: 6
+      element_type: big_decimal
+      element_specs:
+        range: [1.0, 100.0]
+        precision: 1
+      null_probability: 0.0
+  - name: "109"
+    type: array
+    specs:
+      min_length: 1
+      max_length: 4
+      element_type: string
+      element_specs:
+        values: ["small", "medium", "large"]
+      null_probability: 0.0
+  - name: "110"
+    type: array
+    specs:
+      min_length: 2
+      max_length: 5
+      element_type: big_integer
+      element_specs:
+        values: [10, 20, 30, 40]
+      null_probability: 0.3
+  - name: "111"
+    type: array
+    specs:
+      min_length: 1
+      max_length: 3
+      element_type: string
+      element_specs:
+        length_range: [5, 10]
+      null_probability: 0.3
+  - name: "112"
+    type: array
+    specs:
+      min_length: 2
+      max_length: 4
+      element_type: boolean
+      null_probability: 0.3
+  - name: "113"
+    type: array
+    specs:
+      min_length: 1
+      max_length: 5
+      element_type: big_decimal
+      element_specs:
+        values: [1.1, 2.2, 3.3]
+        precision: 1
+      null_probability: 0.3
+  - name: "114"
+    type: array
+    specs:
+      min_length: 2
+      max_length: 6
+      element_type: string
+      element_specs:
+        values: ["red", "green", "blue"]
+      null_probability: 0.3
+  - name: "115"
+    type: array
+    specs:
+      min_length: 1
+      max_length: 4
+      element_type: big_integer
+      element_specs:
+        range: [100, 999]
+      null_probability: 0.6
+  - name: "116"
+    type: array
+    specs:
+      min_length: 2
+      max_length: 5
+      element_type: string
+      element_specs:
+        length_range: [4, 12]
+      null_probability: 0.6
+  - name: "117"
+    type: array
+    specs:
+      min_length: 1
+      max_length: 3
+      element_type: boolean
+      null_probability: 0.6
+  - name: "118"
+    type: array
+    specs:
+      min_length: 2
+      max_length: 4
+      element_type: big_decimal
+      element_specs:
+        range: [0.1, 9.9]
+        precision: 1
+      null_probability: 0.6
+  - name: "119"
+    type: array
+    specs:
+      min_length: 1
+      max_length: 5
+      element_type: string
+      element_specs:
+        values: ["mon", "tue", "wed", "thu", "fri"]
+      null_probability: 0.6
+  - name: "120"
+    type: array
+    specs:
+      min_length: 1
+      max_length: 4
+      element_type: big_integer
+      element_specs:
+        values: [1000, 2000, 3000]
+      null_probability: 0.9
+  - name: "121"
+    type: array
+    specs:
+      min_length: 2
+      max_length: 6
+      element_type: string
+      element_specs:
+        length_range: [2, 6]
+      null_probability: 0.9
+  - name: "122"
+    type: array
+    specs:
+      min_length: 1
+      max_length: 3
+      element_type: boolean
+      null_probability: 0.9
+  - name: "123"
+    type: array
+    specs:
+      min_length: 2
+      max_length: 5
+      element_type: big_decimal
+      element_specs:
+        values: [0.5, 1.5, 2.5]
+        precision: 1
+      null_probability: 0.9
+  - name: "124"
+    type: array
+    specs:
+      min_length: 1
+      max_length: 4
+      element_type: string
+      element_specs:
+        values: ["alpha", "beta", "gamma"]
+      null_probability: 0.9
+
+  # Datetime fields (16 fields with different null probabilities)
+  - name: "125"
+    type: datetime
+    specs:
+      range: ["2023-01-01T00:00:00Z", "2023-12-31T23:59:59Z"]
+      null_probability: 0.0
+  - name: "126"
+    type: datetime
+    specs:
+      values: ["2023-03-01T12:00:00Z", "2023-06-01T12:00:00Z", "2023-09-01T12:00:00Z"]
+      null_probability: 0.0
+  - name: "127"
+    type: datetime
+    specs:
+      range: ["2024-01-01T00:00:00Z", "2024-12-31T23:59:59Z"]
+      null_probability: 0.0
+  - name: "128"
+    type: datetime
+    specs:
+      values: ["2022-01-01T00:00:00Z", "2022-06-01T00:00:00Z"]
+      null_probability: 0.0
+  - name: "129"
+    type: datetime
+    specs:
+      range: ["2022-01-01T00:00:00Z", "2022-12-31T23:59:59Z"]
+      null_probability: 0.3
+  - name: "130"
+    type: datetime
+    specs:
+      values: ["2024-01-01T12:00:00Z", "2024-06-01T12:00:00Z", "2024-12-31T12:00:00Z"]
+      null_probability: 0.3
+  - name: "131"
+    type: datetime
+    specs:
+      range: ["2025-01-01T00:00:00Z", "2025-12-31T23:59:59Z"]
+      null_probability: 0.3
+  - name: "132"
+    type: datetime
+    specs:
+      values: ["2021-03-01T00:00:00Z", "2021-09-01T00:00:00Z"]
+      null_probability: 0.3
+  - name: "133"
+    type: datetime
+    specs:
+      range: ["2021-01-01T00:00:00Z", "2021-12-31T23:59:59Z"]
+      null_probability: 0.6
+  - name: "134"
+    type: datetime
+    specs:
+      values: ["2025-01-01T12:00:00Z", "2025-07-01T12:00:00Z"]
+      null_probability: 0.6
+  - name: "135"
+    type: datetime
+    specs:
+      range: ["2026-01-01T00:00:00Z", "2026-12-31T23:59:59Z"]
+      null_probability: 0.6
+  - name: "136"
+    type: datetime
+    specs:
+      values: ["2020-06-01T00:00:00Z", "2020-12-01T00:00:00Z"]
+      null_probability: 0.6
+  - name: "137"
+    type: datetime
+    specs:
+      range: ["2020-01-01T00:00:00Z", "2020-12-31T23:59:59Z"]
+      null_probability: 0.9
+  - name: "138"
+    type: datetime
+    specs:
+      values: ["2026-01-01T00:00:00Z", "2026-12-31T23:59:59Z"]
+      null_probability: 0.9
+  - name: "139"
+    type: datetime
+    specs:
+      range: ["2027-01-01T00:00:00Z", "2027-12-31T23:59:59Z"]
+      null_probability: 0.9
+  - name: "140"
+    type: datetime
+    specs:
+      values: ["2019-01-01T00:00:00Z", "2019-12-31T23:59:59Z"]
+      null_probability: 0.9
