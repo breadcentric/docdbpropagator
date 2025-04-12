@@ -1,0 +1,500 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": [
+    "collection_name",
+    "fields"
+  ],
+  "properties": {
+    "collection_name": {
+      "type": "string",
+      "description": "Name of the MongoDB collection"
+    },
+    "fields": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "name",
+          "type",
+          "specs"
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Name of the field"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "string",
+              "big_integer",
+              "big_decimal",
+              "boolean",
+              "array",
+              "date",
+              "datetime"
+            ],
+            "description": "Type of the field"
+          },
+          "specs": {
+            "type": "object",
+            "required": [
+              "null_probability"
+            ],
+            "properties": {
+              "null_probability": {
+                "type": "number",
+                "minimum": 0.0,
+                "maximum": 1.0,
+                "description": "Probability of the field being null"
+              },
+              "range": {
+                "type": "array",
+                "minItems": 2,
+                "maxItems": 2,
+                "description": "Range of values for numeric, date, or datetime fields"
+              },
+              "values": {
+                "type": "array",
+                "minItems": 1,
+                "description": "List of possible values for the field"
+              },
+              "length_range": {
+                "type": "array",
+                "minItems": 2,
+                "maxItems": 2,
+                "items": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "description": "Range for string length"
+              },
+              "precision": {
+                "type": "integer",
+                "minimum": 0,
+                "description": "Decimal precision for big_decimal fields"
+              },
+              "true_probability": {
+                "type": "number",
+                "minimum": 0.0,
+                "maximum": 1.0,
+                "description": "Probability of a boolean field being true"
+              },
+              "size_range": {
+                "type": "array",
+                "minItems": 2,
+                "maxItems": 2,
+                "items": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "description": "Range for array size"
+              },
+              "element_type": {
+                "type": "string",
+                "enum": [
+                  "string",
+                  "big_integer",
+                  "big_decimal",
+                  "boolean",
+                  "date",
+                  "datetime"
+                ],
+                "description": "Type of the array element"
+              },
+              "element_specs": {
+                "type": "object",
+                "description": "Specifications for the array element",
+                "properties": {
+                  "null_probability": {
+                    "type": "number",
+                    "minimum": 0.0,
+                    "maximum": 1.0,
+                    "description": "Probability of the field being null"
+                  },
+                  "range": {
+                    "type": "array",
+                    "minItems": 2,
+                    "maxItems": 2,
+                    "description": "Range of values for numeric, date, or datetime fields"
+                  },
+                  "values": {
+                    "type": "array",
+                    "minItems": 1,
+                    "description": "List of possible values for the field"
+                  },
+                  "length_range": {
+                    "type": "array",
+                    "minItems": 2,
+                    "maxItems": 2,
+                    "items": {
+                      "type": "integer",
+                      "minimum": 0
+                    },
+                    "description": "Range for string length"
+                  },
+                  "precision": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "description": "Decimal precision for big_decimal fields"
+                  },
+                  "true_probability": {
+                    "type": "number",
+                    "minimum": 0.0,
+                    "maximum": 1.0,
+                    "description": "Probability of a boolean field being true"
+                  },
+                  "size_range": {
+                    "type": "array",
+                    "minItems": 2,
+                    "maxItems": 2,
+                    "items": {
+                      "type": "integer",
+                      "minimum": 0
+                    },
+                    "description": "Range for array size"
+                  }
+                },
+                "anyOf": [
+                  {
+                    "if": {
+                      "properties": {
+                        "type": {
+                          "const": "big_integer"
+                        }
+                      }
+                    },
+                    "then": {
+                      "anyOf": [
+                        {
+                          "required": [
+                            "values"
+                          ]
+                        },
+                        {
+                          "required": [
+                            "range"
+                          ]
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "if": {
+                      "properties": {
+                        "type": {
+                          "const": "datetime"
+                        }
+                      }
+                    },
+                    "then": {
+                      "anyOf": [
+                        {
+                          "required": [
+                            "values"
+                          ]
+                        },
+                        {
+                          "required": [
+                            "range"
+                          ]
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "if": {
+                      "properties": {
+                        "type": {
+                          "const": "big_decimal"
+                        }
+                      }
+                    },
+                    "then": {
+                      "anyOf": [
+                        {
+                          "required": [
+                            "values"
+                          ]
+                        },
+                        {
+                          "required": [
+                            "range",
+                            "precision"
+                          ]
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "if": {
+                      "properties": {
+                        "type": {
+                          "const": "boolean"
+                        }
+                      }
+                    },
+                    "then": {
+                      "anyOf": [
+                        {
+                          "required": [
+                            "values"
+                          ]
+                        },
+                        {
+                          "required": [
+                            "true_probability"
+                          ]
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "if": {
+                      "properties": {
+                        "type": {
+                          "const": "date"
+                        }
+                      }
+                    },
+                    "then": {
+                      "anyOf": [
+                        {
+                          "required": [
+                            "values"
+                          ]
+                        },
+                        {
+                          "required": [
+                            "range"
+                          ]
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "if": {
+                      "properties": {
+                        "type": {
+                          "const": "string"
+                        }
+                      }
+                    },
+                    "then": {
+                      "anyOf": [
+                        {
+                          "required": [
+                            "values"
+                          ]
+                        },
+                        {
+                          "required": [
+                            "length_range"
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            "anyOf": [
+              {
+                "if": {
+                  "properties": {
+                    "type": {
+                      "const": "big_integer"
+                    }
+                  }
+                },
+                "then": {
+                  "anyOf": [
+                    {
+                      "required": [
+                        "values"
+                      ]
+                    },
+                    {
+                      "required": [
+                        "range"
+                      ]
+                    }
+                  ]
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "type": {
+                      "const": "datetime"
+                    }
+                  }
+                },
+                "then": {
+                  "anyOf": [
+                    {
+                      "required": [
+                        "values"
+                      ]
+                    },
+                    {
+                      "required": [
+                        "range"
+                      ]
+                    }
+                  ]
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "type": {
+                      "const": "big_decimal"
+                    }
+                  }
+                },
+                "then": {
+                  "anyOf": [
+                    {
+                      "required": [
+                        "values"
+                      ]
+                    },
+                    {
+                      "required": [
+                        "range",
+                        "precision"
+                      ]
+                    }
+                  ]
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "type": {
+                      "const": "boolean"
+                    }
+                  }
+                },
+                "then": {
+                  "anyOf": [
+                    {
+                      "required": [
+                        "values"
+                      ]
+                    },
+                    {
+                      "required": [
+                        "true_probability"
+                      ]
+                    }
+                  ]
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "type": {
+                      "const": "date"
+                    }
+                  }
+                },
+                "then": {
+                  "anyOf": [
+                    {
+                      "required": [
+                        "values"
+                      ]
+                    },
+                    {
+                      "required": [
+                        "range"
+                      ]
+                    }
+                  ]
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "type": {
+                      "const": "string"
+                    }
+                  }
+                },
+                "then": {
+                  "anyOf": [
+                    {
+                      "required": [
+                        "values"
+                      ]
+                    },
+                    {
+                      "required": [
+                        "length_range"
+                      ]
+                    }
+                  ]
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "type": {
+                      "const": "array"
+                    }
+                  }
+                },
+                "then": {
+                  "allOf": [
+                    {
+                      "required": [
+                        "size_range"
+                      ]
+                    },
+                    {
+                      "allOf": [
+                        {
+                          "required": [
+                            "size_range"
+                          ]
+                        },
+                        {
+                          "required": [
+                            "element_type",
+                            "element_specs"
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "type_def": {
+      "type": "string",
+      "enum": [
+        "string",
+        "big_integer",
+        "big_decimal",
+        "boolean",
+        "array",
+        "date",
+        "datetime"
+      ],
+      "description": "Type of the field"
+    },
+    "non_array_type_restrictions": {
+      "anyOf": [
+      ]
+    }
+  }
+}

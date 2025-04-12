@@ -10,9 +10,11 @@ readme = "README.md"
 python = "^3.13"
 pymongo = "^4.11"
 pyyaml = "^6.0.2"
+jsonschema = "^4.23.0"
 
 [tool.poetry.scripts]
 generate = "docdbpropagator.docdb_propagator:main"
+validate_config = "docdbpropagator.config_validator:main"
 
 [build-system]
 requires = ["poetry-core"]

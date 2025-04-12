@@ -3,40 +3,40 @@ fields:
   - name: user_id
     type: big_integer
     specs:
-      range: [1000, 9999]
+      range: [ 1000, 9999 ]
       null_probability: 0.0
 
   - name: balance
     type: big_decimal
     specs:
-      range: [100.00, 10000.00]
+      range: [ 100.00, 10000.00 ]
       precision: 2
       null_probability: 0.1
 
   - name: status
     type: string
     specs:
-      values: ["active", "inactive", "pending"]
+      values: [ "active", "inactive", "pending" ]
       null_probability: 0.1
 
   - name: tag_count
     type: big_integer
     specs:
-      values: [1, 5, 10, 15, 20]
+      values: [ 1, 5, 10, 15, 20 ]
       null_probability: 0.0
 
   - name: username
     type: string
     specs:
-      length_range: [5, 15]
+      length_range: [ 5, 15 ]
       null_probability: 0.0
 
   - name: tags
     type: array
     item_type: string
     specs:
-      values: ["premium", "basic", "trial", "expired"]
-      size_range: [1, 4]
+      values: [ "premium", "basic", "trial", "expired" ]
+      size_range: [ 1, 4 ]
       null_probability: 0.2
 
   - name: active
@@ -48,11 +48,11 @@ fields:
   - name: some_date
     type: date
     specs:
-      range: ["2023-01-01", "2023-12-31"]
+      range: [ "2023-01-01", "2023-12-31" ]
       null_probability: 0.5
 
   - name: created_at
     type: datetime
     specs:
-      range: ["2023-01-01T00:00:00", "2023-12-31T23:59:59"]
+      range: [ "2023-01-01T00:00:00", "2023-12-31T23:59:59" ]
       null_probability: 0.0
