@@ -13,7 +13,7 @@ def main():
     import argparse
 
     parser = argparse.ArgumentParser(description='Generate and insert data into MongoDB')
-    parser.add_argument('--config_file', default='sample_config.yaml', help='Path to config file')
+    parser.add_argument('--config_file', default='examples/sample_config.yaml', help='Path to config file')
     parser.add_argument('--mongodb-uri', default='mongodb://localhost:27017', help='MongoDB URI')
     parser.add_argument('--database', default='test_db', help='Database name')
     parser.add_argument('--suffix', default='', help='Suffix to be added to the collection name')
