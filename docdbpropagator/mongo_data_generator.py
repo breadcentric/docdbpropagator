@@ -112,14 +112,16 @@ class MongoDataGenerator:
         """
         if dress_rehearsal:
             total_processed = 0
+            next_percentage_to_report = 10
             for batch in self.generate_records(count):
                 for record in batch:
-                    print(f"Record {total_processed + 1}: {record}")
-                total_processed += len(batch)
-                if (total_processed * 0.01) / count >= 0.1:  # Print progress every 10%
+                    total_processed += 1
+                    print(f"Record {total_processed}: {record}")
+                if (total_processed * 100.0) / count >= next_percentage_to_report:  # Print progress every 10%
                     print(f"Processed {(total_processed * 100.0) / count}% of records")
+                    next_percentage_to_report += 10
             return total_processed
-        
+
         with pymongo.MongoClient(mongodb_uri) as client:
             db = client[database_name]
             collection = db[self.collection_name]
@@ -129,8 +131,8 @@ class MongoDataGenerator:
             for batch in self.generate_records(count):
                 collection.insert_many(batch)
                 total_inserted += len(batch)
-                if (total_inserted * 0.01) / count >= next_percentage_to_report / 100.0:
-                    print(f"Inserted {(total_inserted * 0.01) / count}% of records")
+                if (total_inserted * 100.0) / count >= next_percentage_to_report:
+                    print(f"Inserted {(total_inserted * 100.0) / count}% of records")
                     next_percentage_to_report += 10
 
         return total_inserted

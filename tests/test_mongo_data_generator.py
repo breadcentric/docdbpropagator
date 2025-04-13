@@ -42,10 +42,11 @@ class TestMongoDataGenerator(unittest.TestCase):
             # Check that records were printed to stdout
             self.assertIn('\'test_field\':', lines[0])
             self.assertIn('\'test_field\':', lines[1])
-            
+
             # Check that no MongoDB connection was attempted
-            self.assertNotIn('Inserted', lines[2])
-            
+            self.assertNotIn('Inserted ', lines[2])
+
+            self.assertIn('Processed ', lines[2])
         finally:
             # Restore stdout
             sys.stdout = sys.__stdout__

@@ -14,8 +14,8 @@ def main():
     import argparse
 
     parser = argparse.ArgumentParser(description='Generate and insert data into MongoDB')
-    parser.add_argument('--config_file', default='examples/sample_config.yaml', help='Path to config file')
-    parser.add_argument('--mongodb-uri', default='mongodb://localhost:27017', help='MongoDB URI')
+    parser.add_argument('--config-file', default='examples/sample_config.yaml', dest="config_file", help='Path to config file')
+    parser.add_argument('--mongodb-uri', default='mongodb://localhost:27017', dest="mongodb_uri", help='MongoDB URI')
     parser.add_argument('--database', default='test_db', help='Database name')
     parser.add_argument('--suffix', default='', help='Suffix to be added to the collection name')
     parser.add_argument('--collection', default='', help='Collection name (overrides the file config)')
@@ -52,7 +52,7 @@ def main():
         action = "processed" if args.dress_rehearsal else "inserted"
         print(f"Successfully {action} {records_inserted} records to {generator.collection_name} in {args.database}")
 
-    if not args.skip_report:
+    if not args.skip_report and not args.dress_rehearsal:
         report_generator = CollectionReportGenerator(args.mongodb_uri, args.database, collection_name)
         report_generator.analyze_field_coverage()
 
