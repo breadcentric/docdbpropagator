@@ -98,7 +98,28 @@ class MongoDataGenerator:
         if batch:
             yield batch
 
-    def insert_records(self, mongodb_uri: str, database_name: str, count: int):
+    def insert_records(self, mongodb_uri: str, database_name: str, count: int, dress_rehearsal: bool = False):
+        """Insert records into MongoDB or print them to stdout in dress rehearsal mode.
+
+        Args:
+            mongodb_uri: MongoDB connection URI
+            database_name: Name of the database
+            count: Number of records to generate
+            dress_rehearsal: If True, prints records to stdout instead of inserting to MongoDB
+
+        Returns:
+            int: Number of records processed
+        """
+        if dress_rehearsal:
+            total_processed = 0
+            for batch in self.generate_records(count):
+                for record in batch:
+                    print(f"Record {total_processed + 1}: {record}")
+                total_processed += len(batch)
+                if (total_processed * 0.01) / count >= 0.1:  # Print progress every 10%
+                    print(f"Processed {(total_processed * 100.0) / count}% of records")
+            return total_processed
+        
         with pymongo.MongoClient(mongodb_uri) as client:
             db = client[database_name]
             collection = db[self.collection_name]
@@ -113,3 +134,4 @@ class MongoDataGenerator:
                     next_percentage_to_report += 10
 
         return total_inserted
+

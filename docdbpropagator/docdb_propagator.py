@@ -24,6 +24,8 @@ def main():
                         help='Print values report instead of inserting values')
     parser.add_argument('--skip-report', action='store_true', dest='skip_report',
                         help='Print values report instead of inserting values')
+    parser.add_argument('--dress-rehearsal', action='store_true', dest='dress_rehearsal',
+                        help='Print records to stdout instead of inserting into MongoDB')
 
     args = parser.parse_args()
 
@@ -38,15 +40,17 @@ def main():
     if not args.report:
         generator = MongoDataGenerator(config, collection_name)
 
-        print(f"Inserting {args.count} records to {generator.collection_name} in {args.database}")
+        print(f"{'Inserting' if not args.dress_rehearsal else 'Generating'} {args.count} records to {generator.collection_name} in {args.database}")
 
         records_inserted = generator.insert_records(
             mongodb_uri=args.mongodb_uri,
             database_name=args.database,
-            count=args.count
+            count=args.count,
+            dress_rehearsal=args.dress_rehearsal
         )
 
-        print(f"Successfully inserted {records_inserted} records to {generator.collection_name} in {args.database}")
+        action = "processed" if args.dress_rehearsal else "inserted"
+        print(f"Successfully {action} {records_inserted} records to {generator.collection_name} in {args.database}")
 
     if not args.skip_report:
         report_generator = CollectionReportGenerator(args.mongodb_uri, args.database, collection_name)
@@ -55,3 +59,6 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
+
