@@ -1,6 +1,6 @@
-from typing import Dict, Any
+from typing import Any, Dict
 
-import pymongo
+from pymongo import MongoClient
 
 
 class CollectionReportGenerator:
@@ -12,14 +12,14 @@ class CollectionReportGenerator:
     def analyze_field_coverage(self) -> Dict[str, Dict[str, Any]]:
         """
         Analyze the field coverage in a MongoDB collection and return statistics.
-        
+
         Returns:
             Dict[str, Dict[str, Any]]: A dictionary containing field coverage statistics
             with counts and percentages.
         """
-        print(f"Gathering a report for a collection")
+        print("Gathering a report for a collection")
 
-        with pymongo.MongoClient(self.mongodb_uri) as client:
+        with MongoClient(self.mongodb_uri) as client:  # type: MongoClient
             db = client[self.database_name]
             collection = db[self.collection_name]
 
@@ -41,27 +41,29 @@ class CollectionReportGenerator:
                             field: {
                                 "$sum": {
                                     "$cond": [
-                                        {"$or": [{"$ifNull": [f"${field}", False]}, {"$eq": [f"${field}", False]}]},
+                                        {
+                                            "$or": [
+                                                {"$ifNull": [f"${field}", False]},
+                                                {"$eq": [f"${field}", False]},
+                                            ]
+                                        },
                                         1,
-                                        0
+                                        0,
                                     ]
                                 }
                             }
                             for field in all_fields
-                        }
+                        },
                     }
                 }
             ]
 
             result = list(collection.aggregate(pipeline))[0]
-            del result['_id']  # Remove the _id field from results
+            del result["_id"]  # Remove the _id field from results
 
             # Calculate percentages
             coverage = {
-                field: {
-                    'count': count,
-                    'percentage': (count / total_docs) * 100
-                }
+                field: {"count": count, "percentage": (count / total_docs) * 100}
                 for field, count in result.items()
             }
 
@@ -70,6 +72,10 @@ class CollectionReportGenerator:
             print(f"\nTotal documents: {total_docs}")
             print("\nField coverage:")
             for field, stats in coverage.items():
-                print(f"{field:20} : {stats['count']:6d} records ({stats['percentage']:6.2f}%)")
+                print(
+                    f"{field:20} : "
+                    f"{stats['count']:6d} "
+                    f"records ({stats['percentage']:6.2f}%)"
+                )
 
             return coverage

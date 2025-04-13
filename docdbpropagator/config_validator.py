@@ -3,7 +3,7 @@
 import json
 import os
 from pathlib import Path
-from typing import Dict, Union
+from typing import Any, Dict, Union
 
 import jsonschema
 import yaml
@@ -12,7 +12,12 @@ import yaml
 class ConfigValidator:
     """Validator for configuration files using JSON Schema."""
 
-    def __init__(self, schema_path=Path(__file__).parent.parent / "schemas" / "config_schema.json"):
+    def __init__(
+        self,
+        schema_path: Union[str, Path] = Path(__file__).parent.parent
+        / "schemas"
+        / "config_schema.json",
+    ) -> None:
         """
         Initialize the validator with the schema.
 
@@ -28,7 +33,7 @@ class ConfigValidator:
         with open(schema_path) as f:
             self.schema = json.load(f)
 
-    def validate_file(self, config_path: Union[str, Path]) -> Dict:
+    def validate_file(self, config_path: Union[str, Path]) -> Dict[str, Any]:
         """
         Validate a configuration file against the schema.
 
@@ -48,9 +53,9 @@ class ConfigValidator:
             config = yaml.safe_load(f)
 
         jsonschema.validate(instance=config, schema=self.schema)
-        return config
+        return Dict[str, Any](config)
 
-    def validate_dict(self, config: Dict) -> Dict:
+    def validate_dict(self, config: Dict[str, Any]) -> Dict[str, Any]:
         """
         Validate a configuration dictionary against the schema.
 
@@ -68,13 +73,22 @@ class ConfigValidator:
         return config
 
 
-def main():
+def main() -> None:
     import argparse
 
-    parser = argparse.ArgumentParser(description='Verify the correctness of a schema file')
-    parser.add_argument('--config_file', default='examples/sample_config.yaml', help='Path to config file')
-    parser.add_argument('--schema_file', default='schemas/config_schema.json',
-                        help='Path to schema file (if not using the default)')
+    parser = argparse.ArgumentParser(
+        description="Verify the correctness of a schema file"
+    )
+    parser.add_argument(
+        "--config_file",
+        default="examples/sample_config.yaml",
+        help="Path to config file",
+    )
+    parser.add_argument(
+        "--schema_file",
+        default="schemas/config_schema.json",
+        help="Path to schema file (if not using the default)",
+    )
 
     args = parser.parse_args()
     validator = ConfigValidator(args.schema_file)

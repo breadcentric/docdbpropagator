@@ -9,6 +9,27 @@ Install the package using Poetry:
 poetry install
 ```
 
+### Development Setup
+
+This project uses several code quality tools to ensure consistent formatting and type safety:
+
+- **black**: Code formatting
+- **isort**: Import sorting
+- **flake8**: Code linting
+- **mypy**: Static type checking
+
+To set up the development environment:
+
+1. Install pre-commit hooks:
+```bash
+poetry run pre-commit install
+```
+
+2. Run formatters manually:
+```bash
+poetry run lint
+```
+
 ## Running examples
 
 Get help for running the tool:

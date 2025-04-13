@@ -15,10 +15,51 @@ jsonschema = "^4.23.0"
 [tool.poetry.scripts]
 generate = "docdbpropagator.docdb_propagator:main"
 validate_config = "docdbpropagator.config_validator:main"
+lint = "scripts.lint:main"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.3.5"
+black = "^25.1.0"
+isort = "^5.13.0"
+flake8 = "^7.0.0"
+mypy = "^1.8.0"
+pre-commit = "^4.2.0"
+types-jsonschema = "^4.23.0.20241208"
+types-setuptools = "^78.1.0.20250329"
+types-requests = "^2.32.0.20250328"
+types-pyyaml = "^6.0.12.20250402"
 
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 88
+target-version = ['py313']
+include = '\.pyi?$'
+
+[tool.isort]
+profile = "black"
+multi_line_output = 3
+include_trailing_comma = true
+force_grid_wrap = 0
+use_parentheses = true
+line_length = 88
+ensure_newline_before_comments = true
+
+[tool.flake8]
+max-line-length = 88
+extend-ignore = "E203"
+exclude = [
+    ".git",
+    "__pycache__",
+    "build",
+    "dist"
+]
+
+[tool.mypy]
+python_version = "3.13"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+check_untyped_defs = true
