@@ -1,5 +1,6 @@
 import yaml
 
+from docdbpropagator.config_validator import ConfigValidator
 from .collection_report_generator import CollectionReportGenerator
 from .mongo_data_generator import MongoDataGenerator
 
@@ -28,6 +29,9 @@ def main():
 
     with open(args.config_file, 'r') as file:
         config = yaml.safe_load(file)
+
+    validator = ConfigValidator()
+    config = validator.validate_dict(config)
 
     collection_name = determine_collection_name(config, args.collection, args.suffix)
 
