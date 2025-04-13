@@ -14,15 +14,12 @@ class MongoDataGenerator:
         self.fields = config['fields']
 
     @staticmethod
-    def generate_value(field: Dict[str, Any]) -> Any:
+    def generate_value(field_type: str, specs: Any) -> Any:
         # Check for null first
-        if 'null_probability' in field['specs'] and \
-                random.random() < field['specs']['null_probability']:
+        if 'null_probability' in specs and \
+                random.random() < specs['null_probability']:
             return None
 
-        field_type = field['type']
-        specs = field['specs']
-        
         # If values are provided, pick one randomly regardless of type
         if 'values' in specs and field_type != 'array':
             return random.choice(specs['values'])
@@ -55,19 +52,28 @@ class MongoDataGenerator:
             return start_date + timedelta(seconds=random_seconds)
 
         elif field_type == 'array':
-            if 'values' not in specs:
-                return []
-
             size = random.randint(
                 specs['size_range'][0],
                 specs['size_range'][1]
             )
+
+            if 'element_type' in specs:
+                return [
+                    MongoDataGenerator.generate_value(specs['element_type'], specs['element_specs'])
+                    for _ in range(size)
+                ]
+
+            if 'values' not in specs:
+                return []
+
             return random.sample(specs['values'], size)
 
     def generate_record(self) -> Dict[str, Any]:
         record = {}
         for field in self.fields:
-            generated_value = self.generate_value(field)
+            field_type = field['type']
+            specs = field['specs']
+            generated_value = self.generate_value(field_type, specs)
             if generated_value is not None:
                 record[field['name']] = generated_value
         return record
